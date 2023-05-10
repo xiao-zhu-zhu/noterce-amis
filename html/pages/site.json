@@ -1,0 +1,34 @@
+{
+  "status": 0,
+  "msg": "",
+  "data": {
+    "pages": [
+      {
+        "label": "noterce管理",
+        "url": "/admin",
+        "schemaApi": "get:/pages/noterce-home.json"
+      },
+      {
+        "label": "管理",
+        "children": [
+          {
+              
+                "label": "管理",
+                "url": "/admin",
+                "schemaApi": "get:/pages/noterce-home.json"
+          },{
+              
+                "label": "shell",
+                "url": "/shell",
+                "schemaApi": "get:/pages/noterce-shell.json"
+          },{
+              
+                "label": "cs上线",
+                "url": "/cs",
+                "schemaApi": "get:/pages/noterce-cs.json"
+          }
+            ]
+          }
+        ]
+      }
+  }

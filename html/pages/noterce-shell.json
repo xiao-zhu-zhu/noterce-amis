@@ -1,0 +1,88 @@
+{
+  "type": "page",
+  "title": "shell执行",
+  "body": [
+    {
+      "type": "editor",
+      "label": "shell命令",
+      "name": "command",
+      "id": "u:12076e7a9b7b",
+      "language": "shell",
+      "allowFullscreen": true
+    },
+    {
+      "type": "form",
+      "title": "",
+      "body": [
+        {
+          "label": "noteaddr",
+          "type": "input-text",
+          "name": "noteaddr",
+          "id": "u:26b30ea8cbd6",
+          "readOnly": true
+        },
+        {
+          "type": "input-text",
+          "label": "aeskey",
+          "name": "aeskey",
+          "id": "u:405e4e1f82cb",
+          "readOnly": true
+        },
+        {
+          "type": "input-text",
+          "label": "主机名",
+          "name": "hostname",
+          "id": "u:c8b3e759fc71",
+          "readOnly": true,
+          "themeConfig": {
+          }
+        }
+      ],
+      "mode": "inline",
+      "api": {
+        "url": "/api/shell",
+        "method": "post",
+        "messages": {
+        },
+        "dataType": "form",
+        "data": {
+          "command": "${command}",
+          "aeskey": "${aeskey}",
+          "noteaddr": "${noteaddr}"
+        }
+      },
+      "id": "u:d9b7806f1f87",
+      "themeConfig": {
+      },
+      "submitText": "发送命令",
+      "onEvent": {
+        "submitSucc": {
+          "weight": 0,
+          "actions": [
+            {
+              "componentId": "u:04b1021b047a",
+              "args": {
+                "value": "${event.data.result.data}"
+              },
+              "actionType": "setValue"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "editor",
+      "label": "服务端",
+      "name": "fuwu",
+      "id": "u:04b1021b047a",
+      "language": "shell"
+    }
+  ],
+  "id": "u:15bf045b94f4",
+  "asideResizor": false,
+  "pullRefresh": {
+    "disabled": true
+  },
+  "data": {
+  }
+}
